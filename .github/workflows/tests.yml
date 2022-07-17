@@ -1,0 +1,20 @@
+on: [push]
+
+jobs:
+  run-on-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create OG:Images
+        uses: ./
+
+      - name: Show that the Action works
+        shell: pwsh
+        run: |
+          Get-ChildItem /tmp
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: pics
+          path: /tmp
