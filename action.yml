@@ -6,7 +6,7 @@ description: "Cache modules from the PowerShell Gallery"
 inputs:
   template-path:
     description: "The path to the html to use as a template"
-    default: ${{ github.action_path }}/template.html
+    default: "${{ github.action_path }}/sample/template.md"
     required: false
   replace-hash:
     description: "Hash of replacements"
