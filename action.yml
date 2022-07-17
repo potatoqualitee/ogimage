@@ -37,7 +37,6 @@ runs:
               Force           = "${{ inputs.force }}"
               AllowPrerelease = "${{ inputs.allow-prerelease }}"
               Shell           = "${{ inputs.shell }}"
-              Butt            = "${{  inputs.butt }}"
           }
           
         $inputs = @{
