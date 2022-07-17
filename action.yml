@@ -52,13 +52,13 @@ runs:
         npx --yes playwright install --with-deps chromium
         sudo apt-get install -y optipng
 
-        if (${{ inputs.template-path }} -eq "sample") {
+        if ("${{ inputs.template-path }}" -eq "sample") {
           $TemplatePath = "${{ github.action_path }}/sample/template.md"
         } else {
           $TemplatePath = "${{ inputs.template-path }}"
         }
 
-        if (${{ inputs.css-path }} -eq "sample") {
+        if ("${{ inputs.css-path }}" -eq "sample") {
           $CSSPath = "${{ github.action_path }}/sample/template.md"
         } else {
           $CSSPath = "${{ inputs.css-path }}"
