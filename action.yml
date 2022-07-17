@@ -67,7 +67,7 @@ runs:
         $inputs = @{
               TemplatePath          = $TemplatePath
               ReplaceHash           = ${{  inputs.replace-hash }}
-              CSSPath               = ($CSSPath -split ",")
+              CSSPath               = $CSSPath
               OutputPath            = "${{ inputs.output-path }}"
               ReplaceHashFilePath   = "${{  inputs.replace-hash-filepath }}"
               NoOptimize            = "${{  inputs.no-optimize }}"
