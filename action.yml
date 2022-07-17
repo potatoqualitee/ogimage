@@ -39,7 +39,7 @@ runs:
               TemplatePath          = "${{  inputs.template-path }}"
               ReplaceHash           = ${{  inputs.replace-hash }}
               OutputPath            = "${{ inputs.output-path }}"
-              ReplaceHashFilePath   = ${{  inputs.replace-hash-filepath }}
+              ReplaceHashFilePath   = "${{  inputs.replace-hash-filepath }}"
           }
 
         ${{ github.action_path }}\main.ps1 @inputs
