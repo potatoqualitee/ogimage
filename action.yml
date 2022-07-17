@@ -4,29 +4,26 @@ branding:
   color: "gray-dark"
 description: "Cache modules from the PowerShell Gallery"
 inputs:
-  modules-to-cache:
-    description: "The PowerShell modules to cache from the PowerShell Gallery"
+  template-path:
+    description: "The path to the html to use as a template"
+    default: ${{ github.action_path }}/template.html
     required: false
-  shell:
-    description: "The default shell to use. Defaults to pwsh. Options are pwsh or powershell."
-    required: false
-    default: "pwsh"
-  allow-prerelease:
-    description: "Allow prerelease during Save-Module"
-    required: false
-    default: "true"
-  force:
-    description: "Force during Save-Module"
-    required: false
-    default: "true"
-  butt:
-    description: "Butt"
+  replace-hash:
+    description: "Hash of replacements"
     required: false
     default: |-
       @{
         name = "Butt"
         two = "Butt2"      
       }
+  output-path:
+    description: "The output path where the generated images will be saved"
+    default: "/tmp/pics"
+    required: false
+  no-artifact:
+    description: "Don't upload the artifact"
+    default: "false"
+    required: false
 runs:
   using: "composite"
   steps:
@@ -34,18 +31,16 @@ runs:
       shell: pwsh
       run: |
         $inputs = @{
-              ModulePath      = $modulepath
-              Modules         = ("${{ inputs.modules-to-cache }}" -split ",")
-              Force           = "${{ inputs.force }}"
-              AllowPrerelease = "${{ inputs.allow-prerelease }}"
-              Shell           = "${{ inputs.shell }}"
-          }
-          
-        $inputs = @{
-              Butt           = ${{  inputs.butt }}
+              TemplatePath  = ${{  inputs.template-path }}
+              ReplaceHash   = ${{  inputs.replace-hash }}
+              OutputPath    = "${{ inputs.output-path }}"
           }
 
-        Write-Output "::set-output name=keygen::$true"
-        Write-Output "::set-output name=modulepath::$false"
+        ${{ github.action_path }}\main.ps1 @inputs
 
-        ${{ github.action_path }}/main.ps1 @inputs
+    - name: Upload artifact
+      if: ${{  inputs.no-artifact }} != 'true'
+      uses: actions/upload-artifact@v2
+      with:
+        name: pics
+        path: ${{ inputs.output-path }}

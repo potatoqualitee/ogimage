@@ -1,14 +1,18 @@
 param (
-   [psobject[]]$Butt
+   [string]$TemplatePath,
+   [psobject[]]$ReplaceHash,
+   [string]$OutputPath
 )
 <#
-   ModulePath      = $modulepath
-   Modules         = ("${{ inputs.modules-to-cache }}" -split ",")
-   Force           = "${{ inputs.force }}"
-   AllowPrerelease = "${{ inputs.allow-prerelease }}"
-   Shell           = "${{ inputs.shell }}"
-   Butt           = "${{  inputs.butt }}"
+   TemplatePath  = ${{  inputs.template-path }}
+   ReplaceHash   = ${{  inputs.replace-hash }}
+   OutputPath    = "${{ inputs.output-path }}"
 #>
 
-Write-Output "Trusting repository PSGallery"
-$Butt | Get-Member
+if (-not (Test-Path -Path $OutputPath)) {
+   $null = New-Item -Path $OutputPath -ItemType Directory -Force
+}
+
+
+Write-Output "This and that"
+$ReplaceHash | Get-Member
