@@ -47,7 +47,22 @@ foreach ($hash in $ReplaceHash) {
       Write-Output "CSS Path $CSSPath"
       
       # Perform conversion
-      pandoc -f markdown -t html $filename -o $outfile --self-contained --css=$CSSPath
+      if ($ext -eq "md") {
+         $type = "markdown"
+      } else {
+         $type = "html"
+      }
+      $parm = @{
+         "-f"               = $type
+         "-t"               = "html"
+         $filename          = $null
+         "-o"               = $outfile
+         "--self-contained" = $null
+      }
+      if ($CSSPath) {
+         $parm.'--css' = $CSSPath
+      }
+      pandoc @parm #-f $type -t html $filename -o $outfile --self-contained --css=$CSSPath
       npx playwright screenshot --viewport-size=1200,630 $outfile $image
       if (-not $nonopt) {
          Write-Output "Optimizing $image"
