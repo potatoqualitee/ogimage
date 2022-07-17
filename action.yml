@@ -32,6 +32,17 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - uses: actions/checkout@v3
+    - uses: nikeee/setup-pandoc@v1
+    - uses: actions/setup-node@v3
+      with:
+        node-version: lts/*
+
+      name: Install playwright and optipng
+      run: |
+        npx --yes playwright install --with-deps chromium
+        sudo apt-get install -y optipng
+
     - id: psoutput
       shell: pwsh
       run: |
