@@ -24,7 +24,7 @@ inputs:
     required: false
     default: |-
       @{
-        name = "Butt",
+        name = "Butt"
         two = "Butt2"      
       }
 runs:
