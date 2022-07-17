@@ -42,7 +42,7 @@ runs:
           }
           
         $inputs = @{
-              Butt           = ${{  inputs.butt }} | ConvertFrom-Json
+              Butt           = ${{  inputs.butt }}
           }
 
         Write-Output "::set-output name=keygen::$true"
