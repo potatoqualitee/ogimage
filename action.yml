@@ -25,8 +25,16 @@ inputs:
     description: "The output path where the generated images will be saved"
     default: "/tmp/pics"
     required: false
+  css-path:
+    description: "The output path where the generated images will be saved"
+    default: "${{ github.action_path }}/sample/style.css"
+    required: false
   no-artifact:
     description: "Don't upload the artifact"
+    default: "false"
+    required: false
+  no-optimize:
+    description: "Don't optimize the png (greatly decreases size but takes a bit)"
     default: "false"
     required: false
 runs:
@@ -46,11 +54,13 @@ runs:
         $inputs = @{
               TemplatePath          = "${{  inputs.template-path }}"
               ReplaceHash           = ${{  inputs.replace-hash }}
+              CSSPath               = "${{  inputs.css-path }}"
               OutputPath            = "${{ inputs.output-path }}"
               ReplaceHashFilePath   = "${{  inputs.replace-hash-filepath }}"
+              NoOptimize            = "${{  inputs.no-optimize }}"
           }
 
-        ${{ github.action_path }}\main.ps1 @inputs
+        ${{ github.action_path }}/main.ps1 @inputs
 
     - name: Upload artifact
       if: ${{  inputs.no-artifact }} != 'true'
