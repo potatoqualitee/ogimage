@@ -31,7 +31,7 @@ runs:
       shell: pwsh
       run: |
         $inputs = @{
-              TemplatePath  = ${{  inputs.template-path }}
+              TemplatePath  = "${{  inputs.template-path }}"
               ReplaceHash   = ${{  inputs.replace-hash }}
               OutputPath    = "${{ inputs.output-path }}"
           }
