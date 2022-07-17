@@ -52,13 +52,6 @@ foreach ($hash in $ReplaceHash) {
       } else {
          $type = "html"
       }
-      $parm = @{
-         "-f"               = $type
-         "-t"               = "html"
-         $filename          = $null
-         "-o"               = $outfile
-         "--self-contained" = $null
-      }
       if ($CSSPath) {
          $csspaths = @()
          foreach ($item in $CSSPath.Split(",")) {
