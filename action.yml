@@ -23,8 +23,10 @@ inputs:
     description: "Butt"
     required: false
     default: |-
-      url: "https://example.com"
-      butt: "Download"
+      @{
+        "name": "Butt",
+        "two": "Butt"      
+      }
 runs:
   using: "composite"
   steps:
@@ -40,7 +42,7 @@ runs:
           }
           
         $inputs = @{
-              Butt           = '${{  inputs.butt }}' | ConvertFrom-Json
+              Butt           = ${{  inputs.butt }} | ConvertFrom-Json
           }
 
         Write-Output "::set-output name=keygen::$true"
