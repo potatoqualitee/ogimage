@@ -42,9 +42,9 @@ foreach ($hash in $ReplaceHash) {
       $content | Set-Content -Path $filename
 
       Write-Output "Filename $filename"
-      Write-Output "Filename $outfile"
-      Write-Output "Filename $image"
-      Write-Output "Filename $CSSPath"
+      Write-Output "Outfile $outfile"
+      Write-Output "Image $image"
+      Write-Output "CSS Path $CSSPath"
       
       # Perform conversion
       pandoc -f markdown -t html $filename -o $outfile --self-contained --css=$CSSPath
