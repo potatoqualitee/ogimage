@@ -48,10 +48,10 @@ foreach ($hash in $ReplaceHash) {
       
       # Perform conversion
       pandoc -f markdown -t html $filename -o $outfile --self-contained --css=$CSSPath
-      #npx playwright screenshot --viewport-size=1200,630 $outfile $image
+      npx playwright screenshot --viewport-size=1200,630 $outfile $image
       if (-not $nonopt) {
          Write-Output "Optimizign $image"
-         #optipng -o7 $image *> /dev/null
+         optipng -o7 $image *> /dev/null
       }
       <#
             $content | Set-Content -Path /tmp/thumbs/$name.md
