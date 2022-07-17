@@ -65,7 +65,7 @@ runs:
         }
 
         $inputs = @{
-              TemplatePath          = $TemplatePath"
+              TemplatePath          = $TemplatePath
               ReplaceHash           = ${{  inputs.replace-hash }}
               CSSPath               = $CSSPath
               OutputPath            = "${{ inputs.output-path }}"
