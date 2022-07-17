@@ -38,14 +38,11 @@ runs:
       with:
         node-version: lts/*
 
-      name: Install playwright and optipng
-      run: |
-        npx --yes playwright install --with-deps chromium
-        sudo apt-get install -y optipng
-
     - id: psoutput
       shell: pwsh
       run: |
+        npx --yes playwright install --with-deps chromium
+        sudo apt-get install -y optipng
         $inputs = @{
               TemplatePath          = "${{  inputs.template-path }}"
               ReplaceHash           = ${{  inputs.replace-hash }}
