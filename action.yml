@@ -6,7 +6,7 @@ description: "Cache modules from the PowerShell Gallery"
 inputs:
   template-path:
     description: "The path to the html to use as a template"
-    default: ${{ github.action_path }}/sample/template.md
+    default: ${GITHUB_ACTION_PATH}/sample/template.md
     required: false
   replace-hash:
     description: "Hash of replacements"
@@ -27,7 +27,7 @@ inputs:
     required: false
   css-path:
     description: "The output path where the generated images will be saved"
-    default: "${{ github.action_path }}/sample/style.css"
+    default: "${GITHUB_ACTION_PATH}/sample/style.css"
     required: false
   no-artifact:
     description: "Don't upload the artifact"
