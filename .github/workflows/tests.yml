@@ -12,9 +12,3 @@ jobs:
         shell: pwsh
         run: |
           Get-ChildItem /tmp
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: pics
-          path: /tmp
