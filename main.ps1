@@ -4,13 +4,14 @@ param (
    [string]$ReplaceHashFilePath,
    [string]$OutputPath,
    [string]$CSSPath,
-   [bool]$NoOptimize
+   [string]$NoOptimize
 )
 
 if (-not (Test-Path -Path $OutputPath)) {
    $null = New-Item -Path $OutputPath -ItemType Directory -Force
 }
 
+$nonopt = [bool]($NoOptimize)
 $template = Get-Content -Path $TemplatePath
 
 if ($ReplaceHashFilePath -ne $null) {
@@ -42,7 +43,7 @@ foreach ($hash in $ReplaceHash) {
       # Perform conversion
       pandoc -f markdown -t html $filename -o outfile --self-contained --css=$CSSPath
       npx playwright screenshot --viewport-size=1200,630 $outfile $image
-      if (-not $NoOptimize) {
+      if (-not $nonopt) {
          Write-Output "Optimizign $image"
          optipng -o7 $image *> /dev/null
       }
