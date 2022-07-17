@@ -571,6 +571,12 @@ h1 {
     font-weight: bold;
 }
 
+.title {
+    font-size: 58px;
+    color: darkblue;
+    font-weight: bold;
+}
+
 .outer {
     display: table;
     position: absolute;

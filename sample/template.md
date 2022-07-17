@@ -6,7 +6,7 @@
 <img align="right" src=https://raw.githubusercontent.com/dataplat/dbatools/development/bin/dbatools.png>
 </div>
 
-<font class="top">--TITLE--</font>
+<font class="title">--TITLE--</font>
 
 <p>--BODY--</p>
 <p>--WHATEVERELSE--</p>
