@@ -14,7 +14,7 @@ if (-not (Test-Path -Path $OutputPath)) {
 $nonopt = [bool]($NoOptimize)
 $template = Get-Content -Path $TemplatePath
 
-if ($ReplaceHashFilePath -ne $null) {
+if ($ReplaceHashFilePath) {
    $ReplaceHash = Invoke-Expression (Get-Content -Path $ReplaceHashFilePath -Raw)
 }
 
