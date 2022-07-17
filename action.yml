@@ -59,7 +59,7 @@ runs:
         }
 
         if ("${{ inputs.css-path }}" -eq "sample") {
-          $CSSPath = "${{ github.action_path }}/sample/style.css"
+          $CSSPath = "${{ github.action_path }}/sample/style.css, https://fonts.googleapis.com/css?family=Ubuntu"
         } else {
           $CSSPath = "${{ inputs.css-path }}"
         }
@@ -67,7 +67,7 @@ runs:
         $inputs = @{
               TemplatePath          = $TemplatePath
               ReplaceHash           = ${{  inputs.replace-hash }}
-              CSSPath               = $CSSPath
+              CSSPath               = ($CSSPath -split ",")
               OutputPath            = "${{ inputs.output-path }}"
               ReplaceHashFilePath   = "${{  inputs.replace-hash-filepath }}"
               NoOptimize            = "${{  inputs.no-optimize }}"

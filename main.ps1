@@ -3,7 +3,7 @@ param (
    [psobject[]]$ReplaceHash,
    [string]$ReplaceHashFilePath,
    [string]$OutputPath,
-   [string]$CSSPath,
+   [string[]]$CSSPath,
    [string]$NoOptimize
 )
 
@@ -54,7 +54,7 @@ foreach ($hash in $ReplaceHash) {
       }
       
       if ($CSSPath) {
-         pandoc -f $type -t html $filename -o $outfile --self-contained --css=$CSSPath
+         pandoc -f $type -t html $filename -o $outfile --self-contained --css=$CSSPath.Join(', ')
       } else {
          pandoc -f $type -t html $filename -o $outfile --self-contained
       }
