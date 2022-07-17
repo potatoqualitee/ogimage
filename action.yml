@@ -59,7 +59,7 @@ runs:
         }
 
         if ("${{ inputs.css-path }}" -eq "sample") {
-          $CSSPath = "${{ github.action_path }}/sample/template.md"
+          $CSSPath = "${{ github.action_path }}/sample/style.css"
         } else {
           $CSSPath = "${{ inputs.css-path }}"
         }
