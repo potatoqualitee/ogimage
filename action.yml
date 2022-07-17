@@ -6,7 +6,7 @@ description: "Cache modules from the PowerShell Gallery"
 inputs:
   template-path:
     description: "The path to the html to use as a template"
-    default: ${GITHUB_ACTION_PATH}/sample/template.md
+    default: "sample"
     required: false
   replace-hash:
     description: "Hash of replacements"
@@ -27,7 +27,7 @@ inputs:
     required: false
   css-path:
     description: "The output path where the generated images will be saved"
-    default: "${GITHUB_ACTION_PATH}/sample/style.css"
+    default: "sample"
     required: false
   no-artifact:
     description: "Don't upload the artifact"
@@ -51,10 +51,23 @@ runs:
       run: |
         npx --yes playwright install --with-deps chromium
         sudo apt-get install -y optipng
+
+        if (${{ inputs.template-path }} -eq "sample") {
+          $TemplatePath = "${{ github.action_path }}/sample/template.md"
+        } else {
+          $TemplatePath = "${{ inputs.template-path }}"
+        }
+
+        if (${{ inputs.css-path }} -eq "sample") {
+          $CSSPath = "${{ github.action_path }}/sample/template.md"
+        } else {
+          $CSSPath = "${{ inputs.css-path }}"
+        }
+
         $inputs = @{
-              TemplatePath          = "${{  inputs.template-path }}"
+              TemplatePath          = $TemplatePath"
               ReplaceHash           = ${{  inputs.replace-hash }}
-              CSSPath               = "${{  inputs.css-path }}"
+              CSSPath               = $CSSPath
               OutputPath            = "${{ inputs.output-path }}"
               ReplaceHashFilePath   = "${{  inputs.replace-hash-filepath }}"
               NoOptimize            = "${{  inputs.no-optimize }}"
