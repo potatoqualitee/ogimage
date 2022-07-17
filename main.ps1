@@ -52,17 +52,13 @@ foreach ($hash in $ReplaceHash) {
       } else {
          $type = "html"
       }
-      $parm = @{
-         "-f"               = $type
-         "-t"               = "html"
-         $filename          = $null
-         "-o"               = $outfile
-         "--self-contained" = $null
-      }
+      
       if ($CSSPath) {
-         $parm.'--css' = $CSSPath
+         pandoc -f $type -t html $filename -o $outfile --self-contained --css=$CSSPath
+      } else {
+         pandoc -f $type -t html $filename -o $outfile --self-contained
       }
-      pandoc @parm #-f $type -t html $filename -o $outfile --self-contained --css=$CSSPath
+      
       npx playwright screenshot --viewport-size=1200,630 $outfile $image
       if (-not $nonopt) {
          Write-Output "Optimizing $image"
