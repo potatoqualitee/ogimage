@@ -13,9 +13,14 @@ inputs:
     required: false
     default: |-
       @{
-        name = "Butt"
-        two = "Butt2"      
+        "--TITLE--"         = "Sample Title"
+        "--BODY--"          = "Sample body"
+        "--WHATEVERELSE--"  = "This too"
+        "--FOOTER--"        = "Footer sample"
       }
+  replace-hash-filepath:
+    description: "File hash of replacements"
+    required: false
   output-path:
     description: "The output path where the generated images will be saved"
     default: "/tmp/pics"
@@ -31,9 +36,10 @@ runs:
       shell: pwsh
       run: |
         $inputs = @{
-              TemplatePath  = "${{  inputs.template-path }}"
-              ReplaceHash   = ${{  inputs.replace-hash }}
-              OutputPath    = "${{ inputs.output-path }}"
+              TemplatePath          = "${{  inputs.template-path }}"
+              ReplaceHash           = ${{  inputs.replace-hash }}
+              OutputPath            = "${{ inputs.output-path }}"
+              ReplaceHashFilePath   = ${{  inputs.replace-hash-filepath }}
           }
 
         ${{ github.action_path }}\main.ps1 @inputs
