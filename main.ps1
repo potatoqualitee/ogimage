@@ -60,7 +60,12 @@ foreach ($hash in $ReplaceHash) {
          "--self-contained" = $null
       }
       if ($CSSPath) {
-         pandoc -f $type -t html $filename -o $outfile --self-contained --css=$CSSPath
+         $csspaths = @()
+         foreach ($item in $CSSPath.Split(",")) {
+            $item = $item.Trim()
+            $csspaths += "--css=$item"
+         }
+         pandoc -f $type -t html $filename -o $outfile --self-contained $csspaths
       } else {
          pandoc -f $type -t html $filename -o $outfile --self-contained
       }
