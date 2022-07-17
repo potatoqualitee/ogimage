@@ -24,8 +24,8 @@ inputs:
     required: false
     default: |-
       @{
-        "name": "Butt",
-        "two": "Butt"      
+        name = "Butt",
+        two = "Butt2"      
       }
 runs:
   using: "composite"
