@@ -18,8 +18,6 @@ if ($ReplaceHashFilePath) {
    $ReplaceHash = Invoke-Expression (Get-Content -Path $ReplaceHashFilePath -Raw)
 }
 
-Write-Output $CSSPath
-
 foreach ($hash in $ReplaceHash) {
    foreach ($item in $hash) {
       $content = $template
@@ -37,15 +35,17 @@ foreach ($hash in $ReplaceHash) {
       }
 
       # Set all the name variables
-      $filename = Join-Path -Path $OutputPath -ChildPath $basename
-      $outfile = Join-Path -Path $OutputPath -ChildPath $basename.html
-      $image = Join-Path -Path $OutputPath -ChildPath $basename.png
+      $ext = $TemplatePath.Split('.') | Select-Object -Last 1
+      $filename = Join-Path -Path $OutputPath -ChildPath "$basename.$ext"
+      $outfile = Join-Path -Path $OutputPath -ChildPath "$basename.html"
+      $image = Join-Path -Path $OutputPath -ChildPath "$basename.png"
       $content | Set-Content -Path $filename
 
       Write-Output $filename
       Write-Output $outfile
       Write-Output $image
-      Write-Output $content
+      Write-Output $CSSPath
+      
       # Perform conversion
       pandoc -f markdown -t html $filename -o $outfile --self-contained --css=$CSSPath
       #npx playwright screenshot --viewport-size=1200,630 $outfile $image
