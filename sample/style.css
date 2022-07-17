@@ -572,6 +572,7 @@ h1 {
 }
 
 .title {
+    font-family: Ubuntu;
     font-size: 58px;
     color: darkblue;
     font-weight: bold;
