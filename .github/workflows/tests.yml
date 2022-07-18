@@ -20,3 +20,16 @@ jobs:
         shell: pwsh
         run: |
           Get-ChildItem /tmp/pics | Select-Object FullName
+
+      - name: Generate Open Graph Image
+        uses: potatoqualitee/ogimage@action
+        with:
+          stylesheet: ./sample/style.css
+          hashtable: |-
+            @{
+                "FileName"          = "rbar-performance-in-powershell"
+                "--TITLE--"         = "RBAR Performance in PowerShell"
+                "--BODY--"          = "In this article, we'll cover looping performance for PowerShell."
+                "--WHATEVERELSE--"  = "By Chrissy LeMaire"
+                "--FOOTER--"        = "See more at netnerds.net"
+            }
