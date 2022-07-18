@@ -17,7 +17,7 @@ If you'd like to see how GitHub does it, you can check out their article: [A fra
 Just copy the code below and modify as desired. I know I just want to see stuff work, so it works without any modifications, right out of the box.
 
 ```yaml
-    - name: Install and cache PowerShell modules
+    - name: Generate thumbnail
       uses: potatoqualitee/ogimage@action
       with:
         stylesheet: ./sample/style.css
@@ -38,6 +38,33 @@ Just copy the code below and modify as desired. I know I just want to see stuff 
               "--FOOTER--"        = "See more at netnerds.net"
           }
 ```
+
+Or this one that you can run as a test and it works:
+```yaml
+      - name: Generate Open Graph Image
+        uses: potatoqualitee/ogimage@action
+        with:
+          stylesheet: ./sample/style.css
+          hashtable: |-
+            @{
+                "FileName"          = "rbar-performance-in-powershell"
+                "--TITLE--"         = "RBAR Performance in PowerShell"
+                "--BODY--"          = "In this article, we'll cover looping performance for PowerShell."
+                "--WHATEVERELSE--"  = "By Chrissy LeMaire"
+                "--FOOTER--"        = "See more at netnerds.net"
+            }
+```
+
+The output is a file named `rbar-performance-in-powershell.png` which looks like this
+
+![image](https://user-images.githubusercontent.com/8278033/179503118-c760dd3b-c541-44d8-bbd2-fbbf1a78e598.png)
+
+I'm not so good at CSS and HTML so it could be better, but this shows you how it can work. Here are the sample files I used.
+
+* blah
+* blah
+* blah
+
 
 ## Usage
 
