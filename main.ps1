@@ -45,6 +45,7 @@ foreach ($hash in $ReplaceHash) {
       Write-Output "Outfile $outfile"
       Write-Output "Image $image"
       Write-Output "CSS Path $CSSPath"
+      Write-Output "Opt in? $nonopt"
       
       # Perform conversion
       if ($ext -eq "md") {
