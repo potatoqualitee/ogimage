@@ -2,6 +2,8 @@
 
 This action dynamically generates Open Graph images (OG:Image) from mini little webpages. This is useful for giving your links more context on Twitter and more.
 
+![image](https://user-images.githubusercontent.com/8278033/179484506-86eefe7c-5e35-4f0a-89a1-c31df76797f0.png)
+
 ## Documentation
 
 Just copy the code below and modify the line **`modules-to-cache: PSFramework, PoshRSJob, dbatools`** with the modules you need.
