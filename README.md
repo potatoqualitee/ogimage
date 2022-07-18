@@ -1,6 +1,6 @@
 # og:image
 
-This action dynamically generates Open Graph images (OG:Image) from mini little webpages. This is useful for giving your links more context on Twitter and more.
+This action dynamically generates Open Graph images (OG:Image) from template files for mini little webpages. This is useful for giving your links more context on Twitter and more.
 
 With some CSS finesse, you too can auto-generate your own OG images like GitHub does.
 
@@ -64,8 +64,8 @@ The output is a file named `rbar-performance-in-powershell.png` which looks like
 
 I'm not so good at CSS and HTML so it could be better, but this shows you how it can work. Here are the sample files I used.
 
-* [/sample/template.md](https://raw.githubusercontent.com/potatoqualitee/ogimage/action/sample/template.md)
-* [/sample/style.css](https://github.com/potatoqualitee/ogimage/blob/action/sample/style.css)
+* [/sample/template.md](https://raw.githubusercontent.com/potatoqualitee/ogimage/main/sample/template.md)
+* [/sample/style.css](https://github.com/potatoqualitee/ogimage/blob/action/main/style.css)
 
 
 For multiple images, you will want to specify a hashtable-filename such as `./assets/hash.ps1` hat contains code formatted similar to the following:
