@@ -68,9 +68,25 @@ I'm not so good at CSS and HTML so it could be better, but this shows you how it
 * [/sample/style.css](https://github.com/potatoqualitee/ogimage/blob/action/sample/style.css)
 
 
-For multiple images, you will want to specify a hashtable-filename value.
+For multiple images, you will want to specify a hashtable-filename such as `./assets/hash.ps1` hat contains code formatted similar to the following:
 
 ```
+@(
+    @{
+        "FileName"         = "MyPic"
+        "--TITLE--"        = "Sample Title"
+        "--AUTHOR--"       = "Foster Jones"
+        "--SYNOPSIS--"     = "This too"
+        "--FOOTER--"       = "Footer sample"
+    },
+    @{
+        "FileName"         = "My Second Pic"
+        "--TITLE--"        = "Another Title"
+        "--AUTHOR--"       = "Adam Pie"
+        "--SYNOPSIS--"     = "And this too"
+        "--FOOTER--"       = "Another footer sample"
+    }
+)
 ```
 
 To add it to your website, edit the html and add
