@@ -84,12 +84,11 @@ To add it to your website, edit the html and add
 <meta property="og:locale" content="en_US" />
 <meta property="og:image" content="https://docs.dbatools.io/assets/thumbs/Add-DbaAgDatabase.png">
 
-<meta name="twitter:text:title" content="dbatools docs:  Add-DbaAgDatabase" />
-<meta name="twitter:image" content="https://docs.dbatools.io/assets/thumbs/Add-DbaAgDatabase.png">
-<meta name="twitter:card" content="summary_large_image">  
-<meta name=twitter:creator content="@psdbatools">
 <meta name=twitter:title content="dbatools docs:  Add-DbaAgDatabase">
-<meta property="twitter:site" content="@psdbatools" />
+<meta name=twitter:creator content="@psdbatools">
+<meta name="twitter:site" content="@psdbatools" />
+<meta name="twitter:image" content="https://docs.dbatools.io/assets/thumbs/Add-DbaAgDatabase.png">
+<meta name="twitter:card" content="summary_large_image"> 
 ```
 
 
