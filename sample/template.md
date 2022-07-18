@@ -6,10 +6,10 @@
 <img align="right" src=https://raw.githubusercontent.com/dataplat/dbatools/development/bin/dbatools.png>
 </div>
 
-<font class="title">--TITLE--</font>
+<h1 class="title">--TITLE--</font>
 
 <p>--BODY--</p>
-<p style="font-family: Edu NSW ACT Foundation">--WHATEVERELSE--</p>
+<p class="whatever">--WHATEVERELSE--</p>
 
 </div>
 </div>

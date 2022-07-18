@@ -61,9 +61,12 @@ The output is a file named `rbar-performance-in-powershell.png` which looks like
 
 I'm not so good at CSS and HTML so it could be better, but this shows you how it can work. Here are the sample files I used.
 
-* blah
-* blah
-* blah
+* [/sample/template.md](https://github.com/potatoqualitee/ogimage/blob/action/sample/template.md)
+* [/sample/style.css](https://github.com/potatoqualitee/ogimage/blob/action/sample/style.css)
+
+
+For multiple images, you will want to specify a hashtable-filename value.
+
 
 
 ## Usage
