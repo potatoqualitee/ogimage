@@ -11,6 +11,11 @@ jobs:
       - name: Try this too
         uses: potatoqualitee/ogimage@action
 
+      - name: Just a style sheet
+        uses: potatoqualitee/ogimage@action
+        with:
+          stylesheet: ./sample/style.css
+
       - name: Show that the Action works
         shell: pwsh
         run: |
