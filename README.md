@@ -10,9 +10,25 @@ If you need to use `RequiredVersion`, add a colon then the version: **`modules-t
 
 ```yaml
     - name: Install and cache PowerShell modules
-      uses: potatoqualitee/psmodulecache@v4.5
+      uses: potatoqualitee/ogimage@action
       with:
-        modules-to-cache: PSFramework, PoshRSJob, dbatools
+        css-path: ./sample/style.css
+```
+
+```yaml
+    - name: Install and cache PowerShell modules
+      uses: potatoqualitee/ogimage@action
+      with:
+        template-path: ./blog/assets/template.md
+        css-path: ./blog/assets/template-style.css
+        hashtable: |-
+          @{
+              "FileName"          = "-thumbnail"
+              "--TITLE--"         = "Sample Title"
+              "--BODY--"          = "Sample body"
+              "--WHATEVERELSE--"  = "This too"
+              "--FOOTER--"        = "Footer sample"
+          }
 ```
 
 ## Usage
