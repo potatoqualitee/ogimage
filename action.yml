@@ -48,8 +48,11 @@ runs:
     - id: psoutput
       shell: pwsh
       run: |
-        npx --yes playwright install --with-deps chromium
-        sudo apt-get install -y optipng
+        if (-not (Test-Path -path /tmp/installed)) {
+          npx --yes playwright install --with-deps chromium
+          sudo apt-get install -y optipng
+          mkdir /tmp/installed
+        }
 
         if (-not "${{ inputs.template-path }}") {
           $TemplatePath = "${{ github.action_path }}/sample/template.md"
