@@ -30,6 +30,6 @@ jobs:
                 "FileName"       = "rbar-performance-in-powershell"
                 "--TITLE--"      = "RBAR Performance in PowerShell"
                 "--AUTHOR--"     = "By Chrissy LeMaire"
-                "--SYNOPSIS--"   = "In this article, we'll cover looping performance for PowerShell."
+                "--SYNOPSIS--"   = "Learn more about looping performance for PowerShell."
                 "--FOOTER--"     = "See more at netnerds.net"
             }
