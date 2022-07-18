@@ -14,8 +14,8 @@ inputs:
       @{
         "FileName"          = "blog-thumbnail"
         "--TITLE--"         = "Sample Title"
-        "--BODY--"          = "Sample body"
-        "--WHATEVERELSE--"  = "This too"
+        "--AUTHOR--"        = "This too"
+        "--SYNOPSIS--"      = "Sample body"
         "--FOOTER--"        = "Footer sample"
       }
   hashtable-filepath:

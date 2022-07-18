@@ -33,8 +33,8 @@ Just copy the code below and modify as desired. I know I just want to see stuff 
           @{
               "FileName"          = "rbar-performance-in-powershell"
               "--TITLE--"         = "RBAR Performance in PowerShell"
-              "--BODY--"          = "In this article, we'll cover looping performance for PowerShell."
-              "--WHATEVERELSE--"  = "By Chrissy LeMaire"
+              "--AUTHOR--"        = "By Chrissy LeMaire"
+              "--SYNOPSIS--"      = "In this article, we'll cover looping performance for PowerShell."
               "--FOOTER--"        = "See more at netnerds.net"
           }
 ```
@@ -49,8 +49,8 @@ Or this one that you can run as a test and it works:
             @{
                 "FileName"          = "rbar-performance-in-powershell"
                 "--TITLE--"         = "RBAR Performance in PowerShell"
-                "--BODY--"          = "In this article, we'll cover looping performance for PowerShell."
-                "--WHATEVERELSE--"  = "By Chrissy LeMaire"
+                "--AUTHOR--"        = "By Chrissy LeMaire"
+                "--SYNOPSIS--"      = "In this article, we'll cover looping performance for PowerShell."
                 "--FOOTER--"        = "See more at netnerds.net"
             }
 ```

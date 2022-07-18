@@ -7,10 +7,10 @@
 </div>
 
 <h1 class="title">--TITLE--</h1>
+<p class="author">--AUTHOR--</p>
 
-<p>--BODY--</p>
+<p>--SYNOPSIS--</p>
 
-<p class="whatever">--WHATEVERELSE--</p>
 
 </div>
 </div>
