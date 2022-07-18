@@ -9,7 +9,7 @@ jobs:
         uses: ./
 
       - name: Try this too
-        uses: potatoqualitee/ogimage@main
+        uses: potatoqualitee/ogimage@action
 
       - name: Show that the Action works
         shell: pwsh
