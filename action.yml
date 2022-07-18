@@ -7,17 +7,18 @@ inputs:
   template-path:
     description: "The path to the html or markdown to use as a template"
     required: false
-  replace-hash:
-    description: "A hashtable of key/value pairs to replace in the template. Use a FileName key to specify the filename to use for the image, otherwise, it'll be saved with a temporary name."
+  hashtable:
+    description: "A hashtable of key/value pairs to replace in the template. Use a FileName key (without an extension) to specify the filename to use for the image, otherwise, it'll be saved with a temporary name."
     required: false
     default: |-
       @{
+        "FileName"          = "blog-thumbnail"
         "--TITLE--"         = "Sample Title"
         "--BODY--"          = "Sample body"
         "--WHATEVERELSE--"  = "This too"
         "--FOOTER--"        = "Footer sample"
       }
-  replace-hash-filepath:
+  hashtable-filepath:
     description: "If you'd prefer to use an external PowerShell file to create your images instead of a hardcoded hashtable in YAML, you can use this to specify the filepath to use. This file should only contain a hashtable and start with @{"
     required: false
   output-path:
@@ -64,10 +65,10 @@ runs:
 
         $inputs = @{
               TemplatePath          = $TemplatePath
-              ReplaceHash           = ${{  inputs.replace-hash }}
+              ReplaceHash           = ${{  inputs.hashtable }}
               CSSPath               = $CSSPath
               OutputPath            = "${{ inputs.output-path }}"
-              ReplaceHashFilePath   = "${{  inputs.replace-hash-filepath }}"
+              ReplaceHashFilePath   = "${{  inputs.hashtable-filepath }}"
               NoOptimize            = "${{  inputs.no-optimize }}"
           }
 
