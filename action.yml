@@ -2,14 +2,14 @@ name: "OGImage"
 branding:
   icon: "image"
   color: "gray-dark"
-description: "Cache modules from the PowerShell Gallery"
+description: "Dynamically generate Open Graph images (OG:Image). This is useful for giving your links more context on Twitter and more."
 inputs:
   template-path:
-    description: "The path to the html to use as a template"
+    description: "The path to the html or markdown to use as a template"
     default: "sample"
     required: false
   replace-hash:
-    description: "Hash of replacements"
+    description: "A hashtable of key/value pairs to replace in the template. Use a FileName key to specify the filename to use for the image, otherwise, it'll be saved with a temporary name."
     required: false
     default: |-
       @{
@@ -19,22 +19,22 @@ inputs:
         "--FOOTER--"        = "Footer sample"
       }
   replace-hash-filepath:
-    description: "File hash of replacements"
+    description: "If you'd prefer to use an external PowerShell file to create your images instead of a hardcoded hashtable in YAML, you can use this to specify the filepath to use. This file should only contain a hashtable and start with @{"
     required: false
   output-path:
-    description: "The output path where the generated images will be saved"
+    description: "The output path where the generated images will be saved. This will generally be your website's repository. By default, however, it'll save all output to /tmp/pics."
     default: "/tmp/pics"
     required: false
   css-path:
-    description: "The output path where the generated images will be saved"
+    description: "A comma-separated list of paths to any CSS files you'll be using. Can include file paths and even web addresses."
     default: "sample"
     required: false
   no-artifact:
-    description: "Don't upload the artifact"
+    description: "By default, the markdown, html and png files are saved as an artifact. Use this parameter to skip the upload."
     default: "false"
     required: false
   no-optimize:
-    description: "Don't optimize the png (greatly decreases size but takes a bit)"
+    description: "Don't optimize the png (greatly decreases size but takes a bit)."
     default: "false"
     required: false
 runs:
