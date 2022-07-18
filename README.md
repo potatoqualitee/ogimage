@@ -6,7 +6,7 @@ With some CSS finesse, you too can auto-generate your own OG images like GitHub 
 
 <center><img src="https://opengraph.githubassets.com/f1ac5cee6a934fa04d2fc7fbd76084a5343347798d1e9213d9c367eeecf73761/dataplat/dbatools"></center>
 
-So when people post them online, they are informative and look great:
+So when people post them to places like Twitter or LinkedIn, they are informative and look great:
 
 <center><img src="https://user-images.githubusercontent.com/8278033/179485407-b721d755-92f2-4850-82b0-9a019c0b1917.png"></center>
 
@@ -14,7 +14,7 @@ If you'd like to see how GitHub does it, you can check out their article: [A fra
 
 ## Documentation
 
-Just copy the code below and modify as desired. I know I just want to see stuff work, so it works without any modifications, right out of the box.
+To dynamically generate your own image, just copy the code below and modify as desired. I know I just want to see stuff work, so it works without any modifications, right out of the box.
 
 ```yaml
     - name: Generate thumbnail
@@ -22,6 +22,8 @@ Just copy the code below and modify as desired. I know I just want to see stuff 
       with:
         stylesheet: ./sample/style.css
 ```
+
+But then you can also get wild.
 
 ```yaml
     - name: Generate Open Graph Image
@@ -40,6 +42,7 @@ Just copy the code below and modify as desired. I know I just want to see stuff 
 ```
 
 Or this one that you can run as a test and it works:
+
 ```yaml
       - name: Generate Open Graph Image
         uses: potatoqualitee/ogimage@action
@@ -67,6 +70,27 @@ I'm not so good at CSS and HTML so it could be better, but this shows you how it
 
 For multiple images, you will want to specify a hashtable-filename value.
 
+```
+```
+
+To add it to your website, edit the html and add
+
+```
+<meta property="og:type" content="article" />
+<meta property="og:title" content="dbatools docs:  Add-DbaAgDatabase" />
+<meta property="og:url" content="https://docs.dbatools.io/Add-DbaAgDatabase.html" />
+<meta property="og:description" content="dbatools docs for Add-DbaAgDatabase" />
+<meta property="og:site_name" content="docs.dbatools.io" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://docs.dbatools.io/assets/thumbs/Add-DbaAgDatabase.png">
+
+<meta name="twitter:text:title" content="dbatools docs:  Add-DbaAgDatabase" />
+<meta name="twitter:image" content="https://docs.dbatools.io/assets/thumbs/Add-DbaAgDatabase.png">
+<meta name="twitter:card" content="summary_large_image">  
+<meta name=twitter:creator content="@psdbatools">
+<meta name=twitter:title content="dbatools docs:  Add-DbaAgDatabase">
+<meta property="twitter:site" content="@psdbatools" />
+```
 
 
 ## Usage
