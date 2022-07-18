@@ -2,19 +2,25 @@
 
 This action dynamically generates Open Graph images (OG:Image) from mini little webpages. This is useful for giving your links more context on Twitter and more.
 
-![image](https://user-images.githubusercontent.com/8278033/179484506-86eefe7c-5e35-4f0a-89a1-c31df76797f0.png)
+With some CSS finesse, you too can auto-generate your own OG images like GitHub does.
+
+<center><img src="https://opengraph.githubassets.com/f1ac5cee6a934fa04d2fc7fbd76084a5343347798d1e9213d9c367eeecf73761/dataplat/dbatools"></center>
+
+So when people post them online, they are informative and look great:
+
+<center><img src="https://user-images.githubusercontent.com/8278033/179485407-b721d755-92f2-4850-82b0-9a019c0b1917.png"></center>
+
+If you'd like to see how GitHub does it, you can check out their article: [A framework for building Open Graph images](https://github.blog/2021-06-22-framework-building-open-graph-images/).
 
 ## Documentation
 
-Just copy the code below and modify the line **`modules-to-cache: PSFramework, PoshRSJob, dbatools`** with the modules you need.
-
-If you need to use `RequiredVersion`, add a colon then the version: **`modules-to-cache: PSFramework, Pester:4.10.1, dbatools:1.1.0`**
+Just copy the code below and modify as desired. I know I just want to see stuff work, so it works without any modifications, right out of the box.
 
 ```yaml
     - name: Install and cache PowerShell modules
       uses: potatoqualitee/ogimage@action
       with:
-        css-path: ./sample/style.css
+        stylesheet: ./sample/style.css
 ```
 
 ```yaml
@@ -22,7 +28,7 @@ If you need to use `RequiredVersion`, add a colon then the version: **`modules-t
       uses: potatoqualitee/ogimage@action
       with:
         template-path: ./blog/assets/template.md
-        css-path: ./blog/assets/template-style.css
+        stylesheet: ./blog/assets/template-style.css, https://fonts.googleapis.com/css?family=Ubuntu
         hashtable: |-
           @{
               "FileName"          = "-thumbnail"

@@ -25,7 +25,7 @@ inputs:
     description: "The output path where the generated images will be saved. This will generally be your website's repository. By default, however, it'll save all output to /tmp/pics."
     default: "/tmp/pics"
     required: false
-  css-path:
+  stylesheet:
     description: "A comma-separated list of paths to any CSS files you'll be using. Can include file paths and even web addresses."
     required: false
   no-artifact:
@@ -57,10 +57,10 @@ runs:
           $TemplatePath = "${{ inputs.template-path }}"
         }
 
-        if ("${{ inputs.css-path }}" -eq "./sample/style.css") {
+        if ("${{ inputs.stylesheet }}" -eq "./sample/style.css") {
           $CSSPath = "${{ github.action_path }}/sample/style.css, https://fonts.googleapis.com/css?family=Ubuntu, https://fonts.googleapis.com/css?family=Edu+NSW+ACT+Foundation"
         } else {
-          $CSSPath = "${{ inputs.css-path }}"
+          $CSSPath = "${{ inputs.stylesheet }}"
         }
 
         $inputs = @{
