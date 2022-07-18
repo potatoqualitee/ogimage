@@ -28,7 +28,7 @@ inputs:
     description: "A comma-separated list of paths to any CSS files you'll be using. Can include file paths and even web addresses."
     required: false
   no-artifact:
-    description: "By default, the markdown, html and png files are saved as an artifact. Use this parameter to skip the upload."
+    description: "By default, the markdown, html and png files are saved as an artifact. Set to true to skip the upload."
     default: "false"
     required: false
   no-optimize:
@@ -50,13 +50,13 @@ runs:
         npx --yes playwright install --with-deps chromium
         sudo apt-get install -y optipng
 
-        if ("${{ inputs.template-path }}" -eq "sample") {
+        if (-not "${{ inputs.template-path }}") {
           $TemplatePath = "${{ github.action_path }}/sample/template.md"
         } else {
           $TemplatePath = "${{ inputs.template-path }}"
         }
 
-        if ("${{ inputs.css-path }}" -eq "sample") {
+        if ("${{ inputs.css-path }}" -eq "./sample/style.css") {
           $CSSPath = "${{ github.action_path }}/sample/style.css, https://fonts.googleapis.com/css?family=Ubuntu, https://fonts.googleapis.com/css?family=Edu+NSW+ACT+Foundation"
         } else {
           $CSSPath = "${{ inputs.css-path }}"
