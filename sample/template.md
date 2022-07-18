@@ -9,7 +9,7 @@
 <font class="title">--TITLE--</font>
 
 <p>--BODY--</p>
-<p>--WHATEVERELSE--</p>
+<p style="font-family: Edu NSW ACT Foundation">--WHATEVERELSE--</p>
 
 </div>
 </div>

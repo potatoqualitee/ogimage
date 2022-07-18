@@ -59,7 +59,7 @@ runs:
         }
 
         if ("${{ inputs.css-path }}" -eq "sample") {
-          $CSSPath = "${{ github.action_path }}/sample/style.css, https://fonts.googleapis.com/css?family=Ubuntu"
+          $CSSPath = "${{ github.action_path }}/sample/style.css, https://fonts.googleapis.com/css?family=Ubuntu, https://fonts.googleapis.com/css?family=Edu+NSW+ACT+Foundation"
         } else {
           $CSSPath = "${{ inputs.css-path }}"
         }
