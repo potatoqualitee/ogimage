@@ -27,9 +27,9 @@ jobs:
           stylesheet: ./sample/style.css
           hashtable: |-
             @{
-                "FileName"          = "rbar-performance-in-powershell"
-                "--TITLE--"         = "RBAR Performance in PowerShell"
-                "--AUTHOR--"        = "By Chrissy LeMaire"
-                "--SYNOPSIS--"      = "In this article, we'll cover looping performance for PowerShell."
-                "--FOOTER--"        = "See more at netnerds.net"
+                "FileName"       = "rbar-performance-in-powershell"
+                "--TITLE--"      = "RBAR Performance in PowerShell"
+                "--AUTHOR--"     = "By Chrissy LeMaire"
+                "--SYNOPSIS--"   = "In this article, we'll cover looping performance for PowerShell."
+                "--FOOTER--"     = "See more at netnerds.net"
             }
