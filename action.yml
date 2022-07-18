@@ -2,11 +2,10 @@ name: "OGImage"
 branding:
   icon: "image"
   color: "gray-dark"
-description: "Dynamically generate Open Graph images (OG:Image). This is useful for giving your links more context on Twitter and more."
+description: "Dynamically generate Open Graph images (OG:Image) from mini little webpages. This is useful for giving your links more context on Twitter and more."
 inputs:
   template-path:
     description: "The path to the html or markdown to use as a template"
-    default: "sample"
     required: false
   replace-hash:
     description: "A hashtable of key/value pairs to replace in the template. Use a FileName key to specify the filename to use for the image, otherwise, it'll be saved with a temporary name."
@@ -27,7 +26,6 @@ inputs:
     required: false
   css-path:
     description: "A comma-separated list of paths to any CSS files you'll be using. Can include file paths and even web addresses."
-    default: "sample"
     required: false
   no-artifact:
     description: "By default, the markdown, html and png files are saved as an artifact. Use this parameter to skip the upload."

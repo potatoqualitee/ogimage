@@ -11,4 +11,4 @@ jobs:
       - name: Show that the Action works
         shell: pwsh
         run: |
-          Get-ChildItem /tmp/pics
+          Get-ChildItem /tmp/pics | Select-Object FullName
