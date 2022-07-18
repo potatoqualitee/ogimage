@@ -6,9 +6,10 @@
 <img align="right" src=https://raw.githubusercontent.com/dataplat/dbatools/development/bin/dbatools.png>
 </div>
 
-<h1 class="title">--TITLE--</font>
+<h1 class="title">--TITLE--</h1>
 
 <p>--BODY--</p>
+
 <p class="whatever">--WHATEVERELSE--</p>
 
 </div>
