@@ -616,9 +616,13 @@ h1 {
     font-family: Edu NSW ACT Foundation;
     font-size: 24px;
     font-weight: bolder;
+    margin: 0;
+    margin-bottom: 0px;
 }
 
 .synopsis {
+    margin-top: 0px;
+    margin: 0;
     font-size: 94px;
     text-align: center;
 }

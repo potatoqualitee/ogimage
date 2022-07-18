@@ -7,9 +7,8 @@
 </div>
 
 <h1 class="title">--TITLE--</h1>
-<p class="author">--AUTHOR--</p>
-
-<p class="synopsis">--SYNOPSIS--</p>
+<font class="author">--AUTHOR--</font>
+<div class="synopsis">--SYNOPSIS--</div>
 
 
 </div>
