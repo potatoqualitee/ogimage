@@ -24,18 +24,18 @@ Just copy the code below and modify as desired. I know I just want to see stuff 
 ```
 
 ```yaml
-    - name: Install and cache PowerShell modules
+    - name: Generate Open Graph Image
       uses: potatoqualitee/ogimage@action
       with:
         template-path: ./blog/assets/template.md
         stylesheet: ./blog/assets/template-style.css, https://fonts.googleapis.com/css?family=Ubuntu
         hashtable: |-
           @{
-              "FileName"          = "-thumbnail"
-              "--TITLE--"         = "Sample Title"
-              "--BODY--"          = "Sample body"
-              "--WHATEVERELSE--"  = "This too"
-              "--FOOTER--"        = "Footer sample"
+              "FileName"          = "rbar-performance-in-powershell"
+              "--TITLE--"         = "RBAR Performance in PowerShell"
+              "--BODY--"          = "In this article, we'll cover looping performance for PowerShell."
+              "--WHATEVERELSE--"  = "By Chrissy LeMaire"
+              "--FOOTER--"        = "See more at netnerds.net"
           }
 ```
 
@@ -46,10 +46,13 @@ Create a workflow `.yml` file in your repositories `.github/workflows` directory
 
 ### Inputs
 
-* `modules-to-cache` - A comma separated list of PowerShell modules to install or cache.
-* `shell` - The default shell you'll be using. Defaults to pwsh. Options are `pwsh`, `powershell` or `pwsh, powershell` for both pwsh and powershell on Windows.
-* `allow-prerelease` - Allow prerelease during Save-Module. Defaults to true.
-* `force` - Force during Save-Module. Defaults to true.
+* `template-path` - The path to the html or markdown to use as a template.
+* `stylesheet` - A comma-separated list of paths to any CSS files you'll be using. Can include file paths and even web addresses.
+* `hashtable` - A hashtable of key/value pairs to replace in the template. Use a FileName key (without an extension) to specify the filename to use for the image, otherwise, it'll be saved with a temporary name.
+* `hashtable-filepath` - If you'd prefer to use an external PowerShell file to create your images instead of a hardcoded hashtable in YAML, you can use this to specify the filepath to use. This file should only contain a hashtable and start with @{
+* `output-path` - The output path where the generated images will be saved. This will generally be your website's repository. By default, however, it'll save all output to /tmp/pics.
+* `no-artifact` - By default, the markdown, html and png files are saved as an artifact. Set to true to skip the upload.
+* `no-optimize` - Don't optimize the png (greatly decreases size but takes a bit).
 
 ### Cache scopes
 The cache is scoped to the key and branch. The default branch cache is available to other branches. 
@@ -65,16 +68,10 @@ jobs:
   run-on-linux:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Install and cache PowerShell modules
-      id: psmodulecache
-      uses: potatoqualitee/psmodulecache@v4.5
-      with:
-        modules-to-cache: PSFramework, PoshRSJob, dbatools:1.0.0
-    - name: Show that the Action works
-      shell: pwsh
-      run: |
-          Get-Module -Name PSFramework, PoshRSJob, dbatools -ListAvailable | Select Path
+      - uses: potatoqualitee/ogimage@action
+      - name: Create OG:Images
+        uses: ./
+
 ```
 
 Using powershell on Windows. pwsh also works and is the default.
@@ -83,48 +80,17 @@ Using powershell on Windows. pwsh also works and is the default.
 on: [push]
 
 jobs:
-  run-on-windows:
-    runs-on: windows-latest
+  run-on-linux:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Install and cache PowerShell modules
-      id: psmodulecache
-      uses: potatoqualitee/psmodulecache@v4.5
-      with:
-        modules-to-cache: PSFramework, PoshRSJob, dbatools:1.0.0
-    - name: Show that the Action works
-      shell: pwsh
-      run: |
-          Get-Module -Name PSFramework, PoshRSJob, dbatools -ListAvailable | Select Path
-          Import-Module PSFramework
-```
+      - uses: potatoqualitee/ogimage@action
+      - name: Create OG:Images
+        uses: ./
 
-Install for both powershell and pwsh on Windows.
-
-```yaml
-on: [push]
-
-jobs:
-  run-for-both-pwsh-and-powershell:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install and cache PowerShell modules
-        id: psmodulecache
-        uses: potatoqualitee/psmodulecache@v4.5
-        with:
-          modules-to-cache: PoshRSJob, dbatools
-          shell: powershell, pwsh
-      - name: Show that the Action works on pwsh
+      - name: Show that the Action works
         shell: pwsh
         run: |
-          Get-Module -Name PoshRSJob, dbatools -ListAvailable | Select Path
-          Import-Module PoshRSJob
-      - name: Show that the Action works on PowerShell
-        shell: powershell
-        run: |
-          Get-Module -Name PoshRSJob, dbatools -ListAvailable | Select Path
-          Import-Module PoshRSJob
+          Get-ChildItem /tmp/pics | Select-Object FullName
 ```
 
 ## Cache Limits
