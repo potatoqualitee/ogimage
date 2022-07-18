@@ -9,7 +9,7 @@
 <h1 class="title">--TITLE--</h1>
 <p class="author">--AUTHOR--</p>
 
-<p>--SYNOPSIS--</p>
+<p class="synopsis">--SYNOPSIS--</p>
 
 
 </div>

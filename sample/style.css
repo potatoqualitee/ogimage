@@ -617,3 +617,8 @@ h1 {
     font-size: 24px;
     font-weight: bolder;
 }
+
+.synopsis {
+    font-size: 44px;
+    text-align: center;
+}
