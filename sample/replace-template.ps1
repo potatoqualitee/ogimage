@@ -1,16 +1,16 @@
 @(
     @{
-        "FileName"         = "MyPic"
-        "--TITLE--"        = "Sample Title"
-        "--BODY--"         = "Sample body"
-        "--WHATEVERELSE--" = "This too"
-        "--FOOTER--"       = "Footer sample"
+        "FileName"     = "MyPic"
+        "--TITLE--"    = "Sample Title"
+        "--AUTHOR--"   = "Sample body"
+        "--SYNOPSIS--" = "This too"
+        "--FOOTER--"   = "Footer sample"
     },
     @{
-        "FileName"         = "My Second Pic"
-        "--TITLE--"        = "Another Title"
-        "--BODY--"         = "Another body"
-        "--WHATEVERELSE--" = "And this too"
-        "--FOOTER--"       = "Another footer sample"
+        "FileName"     = "My Second Pic"
+        "--TITLE--"    = "Another Title"
+        "--AUTHOR--"   = "Another body"
+        "--SYNOPSIS--" = "And this too"
+        "--FOOTER--"   = "Another footer sample"
     }
 )
