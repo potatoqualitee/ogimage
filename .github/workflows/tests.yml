@@ -30,7 +30,7 @@ jobs:
             }
 
       - name: using filepath
-        uses: potatoqualitee/ogimage@main
+        uses: potatoqualitee/ogimage@v1.0
         with:
           stylesheet: ./sample/style.css
           hashtable-filepath: ./sample/replace-template.ps1
