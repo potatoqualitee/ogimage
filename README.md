@@ -17,13 +17,13 @@ If you'd like to see how GitHub does it, you can check out their article: [A fra
 To dynamically generate your own image, just copy the code below and modify as desired. I know I just want to see stuff work, so it works without any modifications, right out of the box.
 
 ```yaml
-    - name: Generate thumbnail
+    - name: Generate Open Graph Image
       uses: potatoqualitee/ogimage@action
       with:
         stylesheet: ./sample/style.css
 ```
 
-But then you can also get wild.
+But you can also get wild.
 
 ```yaml
     - name: Generate Open Graph Image
@@ -33,15 +33,16 @@ But then you can also get wild.
         stylesheet: ./blog/assets/template-style.css, https://fonts.googleapis.com/css?family=Ubuntu
         hashtable: |-
           @{
-              "FileName"          = "rbar-performance-in-powershell"
-              "--TITLE--"         = "RBAR Performance in PowerShell"
-              "--AUTHOR--"        = "By Chrissy LeMaire"
-              "--SYNOPSIS--"      = "In this article, we'll cover looping performance for PowerShell."
-              "--FOOTER--"        = "See more at netnerds.net"
+              "FileName"          = "my-files"
+              "--TITLE--"         = "This can be anything"
+              "--AUTHOR--"        = "Anyone"
+              "--SYNOPSIS--"      = "All of these variable names and replacement values are just made up"
+              "--FOOTER--"        = "Copyright 1998"
           }
+        output-path: ./gh-pages/images
 ```
 
-Or this one that you can run as a test and it works:
+If you'd like to see it work before diving in, this example works:
 
 ```yaml
       - name: Generate Open Graph Image
@@ -68,7 +69,7 @@ I'm not so good at CSS and HTML so it could be better, but this shows you how it
 * [/sample/style.css](https://github.com/potatoqualitee/ogimage/blob/action/main/style.css)
 
 
-For multiple images, you will want to specify a hashtable-filename such as `./assets/hash.ps1` hat contains code formatted similar to the following:
+For multiple images, you will want to specify a hashtable-filename such as `./assets/hash.ps1` that contains code formatted similar to the following:
 
 ```
 @(
@@ -87,6 +88,17 @@ For multiple images, you will want to specify a hashtable-filename such as `./as
         "--FOOTER--"       = "Another footer sample"
     }
 )
+```
+
+Once the file is created and stored in your repo, specify it as a `filename`
+
+
+```yaml
+      - name: Generate Open Graph Image
+        uses: potatoqualitee/ogimage@action
+        with:
+          stylesheet: ./sample/style.css
+          hashtable-filepath: ./sample/replace-template.ps1
 ```
 
 To add it to your website, edit the html and add
@@ -162,14 +174,8 @@ jobs:
           Get-ChildItem /tmp/pics | Select-Object FullName
 ```
 
-## Cache Limits
-A repository can have up to 5GB of caches. Once the 5GB limit is reached, older caches will be evicted based on when the cache was last accessed.  Caches that are not accessed within the last week will also be evicted.
-
 ## Contributing
 Pull requests are welcome!
-
-## TODO
-* Add support for additional custom repositories (may be out of scope?)
 
 ## License
 The scripts and documentation in this project are released under the [MIT License](LICENSE)

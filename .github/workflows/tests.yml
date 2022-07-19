@@ -8,20 +8,15 @@ jobs:
       - name: Create OG:Images
         uses: ./
 
-      - name: Try this too
+      - name: no params
         uses: potatoqualitee/ogimage@action
 
-      - name: Just a style sheet
+      - name: using minimal params
         uses: potatoqualitee/ogimage@action
         with:
           stylesheet: ./sample/style.css
 
-      - name: Show that the Action works
-        shell: pwsh
-        run: |
-          Get-ChildItem /tmp/pics | Select-Object FullName
-
-      - name: Generate Open Graph Image
+      - name: using hashtable
         uses: potatoqualitee/ogimage@action
         with:
           stylesheet: ./sample/style.css
@@ -33,3 +28,14 @@ jobs:
                 "--SYNOPSIS--"   = "Learn more about looping performance for PowerShell."
                 "--FOOTER--"     = "See more at netnerds.net"
             }
+
+      - name: using filepath
+        uses: potatoqualitee/ogimage@action
+        with:
+          stylesheet: ./sample/style.css
+          hashtable-filepath: ./sample/replace-template.ps1
+
+      - name: Show that the Actions work
+        shell: pwsh
+        run: |
+          Get-ChildItem /tmp/pics | Select-Object FullName
