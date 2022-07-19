@@ -1,21 +1,20 @@
 # og:image
 
-This action dynamically generates Open Graph images (OG:Image) from template files for mini little webpages. This is useful for giving your links more context on Twitter and more.
+This action dynamically generates Open Graph images (OG:Image) from template files. This is useful for giving your links more context on social media such as Twitter and LinkedIn.
 
 With some CSS finesse, you too can auto-generate your own OG images like GitHub does.
 
 <center><img src="https://opengraph.githubassets.com/f1ac5cee6a934fa04d2fc7fbd76084a5343347798d1e9213d9c367eeecf73761/dataplat/dbatools"></center>
 
-So when people post them to places like Twitter or LinkedIn, they are informative and look great:
+So when people posts links to your site, they are informative and look great:
 
 <center><img src="https://user-images.githubusercontent.com/8278033/179485407-b721d755-92f2-4850-82b0-9a019c0b1917.png"></center>
 
-If you'd like to see how GitHub does it, you can check out their article: [A framework for building Open Graph images](https://github.blog/2021-06-22-framework-building-open-graph-images/).
+This action uses [pandoc](https://pandoc.org/) to convert the files into an all-in-one webpage and [Microsoft Playwright](https://github.com/microsoft/playwright) to take a "screenshot" which is a 1200x630 image.
 
 ## How does it work?
 
-Basically, you **create a markdown or html template** with phrases to replace like <br/>
---AUTHOR-- or --TITLE--.
+Basically, you **create a markdown or html template** with phrases to replace like `--AUTHOR--` or `--TITLE--`.
 
 ```
 <div class="title">--TITLE--</div>
@@ -33,6 +32,8 @@ Then let the action know what --AUTHOR-- and --TITLE-- will be replaced by.
 
 Want to make it pretty? You can even attach a stylesheet or reference an online stylesheet or both.
 
+Keep in mind that the generated image is 1200x630 so your stylesheet or general design should accommodate that size.
+
 ## Documentation
 
 To dynamically generate your own image, just copy the code below and modify as desired. I know I just want to see stuff work, so it works without any modifications, right out of the box.
@@ -44,7 +45,9 @@ To dynamically generate your own image, just copy the code below and modify as d
         stylesheet: ./sample/style.css
 ```
 
-But you can also get wild.
+Once that runs, check the Actions tab in your repo, then download the artifact to see your image.
+
+You can also get a lot more advanced too.
 
 ```yaml
     - name: Generate Open Graph Image
@@ -122,7 +125,7 @@ Once the file is created and stored in your repo, specify it as a `filename`
           hashtable-filepath: ./sample/replace-template.ps1
 ```
 
-To add it to your website, edit the html and add
+To add it to your website, copy the images to an appropriate directory, edit the html output of your webpage and add the following code in your `<head>`.
 
 ```
 <meta property="og:type" content="article" />
