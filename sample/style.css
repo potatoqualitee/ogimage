@@ -1,0 +1,628 @@
+/* Github styles
+========================================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 18pt;
+    line-height: 1.6;
+    margin: auto;
+    max-width: 1100px;
+    min-width: 360px;
+    padding: 2rem;
+    word-wrap: break-word;
+}
+
+/* Headers
+========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 16px;
+    margin-top: 24px;
+}
+
+h1 {
+    padding-bottom: 0.3em;
+    font-size: 2em;
+    border-bottom: 1px solid #eee;
+}
+
+h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.5em;
+    border-bottom: 1px solid #eee;
+}
+
+h3 {
+    font-size: 1.25em;
+    ;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+h5 {
+    font-size: 0.875em;
+}
+
+h6 {
+    font-size: 0.85em;
+    color: #777;
+}
+
+h1 tt,
+h1 code,
+h2 tt,
+h2 code,
+h3 tt,
+h3 code,
+h4 tt,
+h4 code,
+h5 tt,
+h5 code,
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+
+body>h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body>h1:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body>h1:first-child+h2 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body>h3:first-child,
+body>h4:first-child,
+body>h5:first-child,
+body>h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+a:first-child h1,
+a:first-child h2,
+a:first-child h3,
+a:first-child h4,
+a:first-child h5,
+a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* Flow Content
+========================================================================== */
+
+a {
+    color: #4078c0;
+    text-decoration: none;
+}
+
+a:active,
+a:hover {
+    outline: 0;
+    text-decoration: underline;
+}
+
+sup,
+sub,
+a.footnote {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+/* Block Content
+========================================================================== */
+
+ol,
+ul {
+    margin-bottom: 16px;
+    margin-top: 0;
+    padding-left: 2em;
+}
+
+p,
+blockquote,
+table,
+pre {
+    margin: 15px 0;
+}
+
+ul,
+ol {
+    padding-left: 2em;
+}
+
+ul.no-list,
+ol.no-list {
+    padding: 0;
+    list-style-type: none;
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+li>p {
+    margin-top: 16px;
+}
+
+li+li {
+    margin-top: 0.25em;
+    ;
+}
+
+ol li ul:first-of-type {
+    margin-top: 0;
+}
+
+hr {
+    background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+    border: 0 none;
+    color: #ccc;
+    height: 4px;
+    margin: 16px 0;
+    padding: 0;
+}
+
+h1+p,
+h2+p,
+h3+p,
+h4+p,
+h5+p,
+h6+p,
+ul li> :first-child,
+ol li> :first-child {
+    margin-top: 0;
+}
+
+dl {
+    padding: 0;
+}
+
+dl dt {
+    font-size: 1em;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+    padding: 0;
+}
+
+dl dt> :first-child {
+    margin-top: 0;
+}
+
+dl dt> :last-child {
+    margin-bottom: 0;
+}
+
+dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px;
+}
+
+dl dd> :first-child {
+    margin-top: 0;
+}
+
+dl dd> :last-child {
+    margin-bottom: 0;
+}
+
+blockquote {
+    border-left: 4px solid #DDD;
+    padding: 0 15px;
+    color: #777;
+}
+
+blockquote> :first-child {
+    margin-top: 0;
+}
+
+blockquote> :last-child {
+    margin-bottom: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 100%;
+    font: inherit;
+}
+
+table th {
+    font-weight: bold;
+    border: 1px solid #ccc;
+    padding: 6px 13px;
+}
+
+table td {
+    border: 1px solid #ccc;
+    padding: 6px 13px;
+}
+
+table td>p:first-child {
+    margin-top: 0;
+}
+
+table td>p:last-child {
+    margin-bottom: 0;
+}
+
+table tr {
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Code
+========================================================================== */
+
+code,
+tt {
+    padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 15pt;
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 3px;
+    white-space: pre-line !important;
+    line-height: 1.5;
+}
+
+pre>code {
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+    border: 0;
+    background: transparent;
+}
+
+pre {
+    padding: 16px;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: #f8f8f8;
+    font-size: 10pt;
+    line-height: 19px;
+    overflow: auto;
+    border-radius: 3px;
+}
+
+pre code,
+pre tt {
+    background-color: transparent;
+    border: 0;
+}
+
+code::before,
+code::after,
+tt::before,
+tt::after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+}
+
+pre code::before,
+pre code::after,
+pre tt::before,
+pre tt::after {
+    content: normal;
+}
+
+code>span.kw {
+    color: #a71d5d;
+    font-weight: normal;
+}
+
+/* Keyword */
+code>span.dt {
+    color: inherit;
+}
+
+/* DataType */
+code>span.dv {
+    color: #0086b3;
+}
+
+/* DecVal */
+code>span.bn {
+    color: #0086b3;
+}
+
+/* BaseN */
+code>span.fl {
+    color: #0086b3;
+}
+
+/* Float */
+code>span.ch {
+    color: #183691;
+}
+
+/* Char */
+code>span.st {
+    color: #183691;
+}
+
+/* String */
+code>span.co {
+    color: #969896;
+    font-style: normal;
+}
+
+/* Comment */
+code>span.ot {
+    color: #a71d5d;
+}
+
+/* Other */
+code>span.al {
+    color: #ff0000;
+}
+
+/* Alert */
+code>span.fu {
+    color: #795da3;
+}
+
+/* Function */
+code>span.er {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+/* Error */
+code>span.wa {
+    color: #969896;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Warning */
+code>span.cn {
+    color: #880000;
+}
+
+/* Constant */
+code>span.sc {
+    color: #183691;
+}
+
+/* SpecialChar */
+code>span.vs {
+    color: #183691;
+}
+
+/* VerbatimString */
+code>span.ss {
+    color: #bb6688;
+}
+
+/* SpecialString */
+code>span.im {}
+
+/* Import */
+code>span.va {
+    color: #19177c;
+}
+
+/* Variable */
+code>span.cf {
+    color: #a71d5d;
+    font-weight: normal;
+}
+
+/* ControlFlow */
+code>span.op {
+    color: #666666;
+}
+
+/* Operator */
+code>span.bu {}
+
+/* BuiltIn */
+code>span.ex {}
+
+/* Extension */
+code>span.pp {
+    color: #bc7a00;
+}
+
+/* Preprocessor */
+code>span.at {
+    color: #0086b3;
+}
+
+/* Attribute */
+code>span.do {
+    color: #ba2121;
+    font-style: italic;
+}
+
+/* Documentation */
+code>span.an {
+    color: #969896;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Annotation */
+code>span.cv {
+    color: #969896;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* CommentVar */
+code>span.in {
+    color: #969896;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Information */
+
+/* Print
+========================================================================== */
+
+@media print {
+    body {
+        background: #fff;
+    }
+
+    img,
+    pre,
+    blockquote,
+    table,
+    figure {
+        page-break-inside: avoid;
+    }
+
+    body {
+        background: #fff;
+        border: 0;
+    }
+
+    code {
+        background-color: #fff;
+        color: #333 !important;
+        padding: 0 .2em;
+        border: 1px solid #dedede;
+    }
+
+    pre {
+        background: #fff;
+    }
+
+    pre code {
+        background-color: white !important;
+        overflow: visible;
+    }
+}
+
+/* Selection
+========================================================================== */
+
+.header {
+    display: table-cell;
+    width: 125px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 60px;
+    text-align: center;
+}
+
+.url {
+    font-size: 10px;
+    color: gray;
+}
+
+.top {
+    text-align: center;
+    font-weight: bold;
+}
+
+.title {
+    font-family: Ubuntu;
+    font-size: 58px;
+    color: darkblue;
+    font-weight: bold;
+}
+
+.outer {
+    display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    height: 100%;
+}
+
+.navbar {
+    background-color: #333;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+}
+
+.author {
+    font-family: Edu NSW ACT Foundation;
+    font-size: 24px;
+    font-weight: bolder;
+    margin: 0;
+    margin-bottom: 0px;
+}
+
+.synopsis {
+    margin-top: 0px;
+    margin: 0;
+    font-size: 94px;
+    text-align: center;
+}

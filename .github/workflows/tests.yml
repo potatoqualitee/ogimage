@@ -1,0 +1,41 @@
+on: [push]
+
+jobs:
+  run-on-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create OG:Images
+        uses: ./
+
+      - name: no params
+        uses: potatoqualitee/ogimage@action
+
+      - name: using minimal params
+        uses: potatoqualitee/ogimage@action
+        with:
+          stylesheet: ./sample/style.css
+
+      - name: using hashtable
+        uses: potatoqualitee/ogimage@action
+        with:
+          stylesheet: ./sample/style.css
+          hashtable: |-
+            @{
+                "FileName"       = "rbar-performance-in-powershell"
+                "--TITLE--"      = "RBAR Performance in PowerShell"
+                "--AUTHOR--"     = "By Chrissy LeMaire"
+                "--SYNOPSIS--"   = "Learn more about looping performance for PowerShell."
+                "--FOOTER--"     = "See more at netnerds.net"
+            }
+
+      - name: using filepath
+        uses: potatoqualitee/ogimage@action
+        with:
+          stylesheet: ./sample/style.css
+          hashtable-filepath: ./sample/replace-template.ps1
+
+      - name: Show that the Actions work
+        shell: pwsh
+        run: |
+          Get-ChildItem /tmp/pics | Select-Object FullName

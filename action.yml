@@ -1,0 +1,85 @@
+name: "OGImage"
+branding:
+  icon: "image"
+  color: "gray-dark"
+description: "Dynamically generate Open Graph images (OG:Image) from mini little webpages. This is useful for giving your links more context on Twitter and more."
+inputs:
+  template-path:
+    description: "The path to the html or markdown to use as a template"
+    required: false
+  hashtable:
+    description: "A hashtable of key/value pairs to replace in the template. Use a FileName key (without an extension) to specify the filename to use for the image, otherwise, it'll be saved with a temporary name."
+    required: false
+    default: |-
+      @{
+        "FileName"          = "blog-thumbnail"
+        "--TITLE--"         = "Sample Title"
+        "--AUTHOR--"        = "This too"
+        "--SYNOPSIS--"      = "Sample body"
+        "--FOOTER--"        = "Footer sample"
+      }
+  hashtable-filepath:
+    description: "If you'd prefer to use an external PowerShell file to create your images instead of a hardcoded hashtable in YAML, you can use this to specify the filepath to use. This file should only contain a hashtable and start with @{"
+    required: false
+  output-path:
+    description: "The output path where the generated images will be saved. This will generally be your website's repository. By default, however, it'll save all output to /tmp/pics."
+    default: "/tmp/pics"
+    required: false
+  stylesheet:
+    description: "A comma-separated list of paths to any CSS files you'll be using. Can include file paths and even web addresses."
+    required: false
+  no-artifact:
+    description: "By default, the markdown, html and png files are saved as an artifact. Set to true to skip the upload."
+    default: "false"
+    required: false
+  no-optimize:
+    description: "Don't optimize the png (greatly decreases size but takes a bit)."
+    default: "false"
+    required: false
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v3
+    - uses: nikeee/setup-pandoc@v1
+    - uses: actions/setup-node@v3
+      with:
+        node-version: lts/*
+
+    - id: psoutput
+      shell: pwsh
+      run: |
+        if (-not (Test-Path -Path /tmp/installed)) {
+          npx --yes playwright install --with-deps chromium
+          sudo apt-get install -y optipng
+          touch /tmp/installed
+        }
+
+        if (-not "${{ inputs.template-path }}") {
+          $TemplatePath = "${{ github.action_path }}/sample/template.md"
+        } else {
+          $TemplatePath = "${{ inputs.template-path }}"
+        }
+
+        if ("${{ inputs.stylesheet }}" -eq "./sample/style.css") {
+          $CSSPath = "${{ github.action_path }}/sample/style.css, https://fonts.googleapis.com/css?family=Ubuntu, https://fonts.googleapis.com/css?family=Edu+NSW+ACT+Foundation"
+        } else {
+          $CSSPath = "${{ inputs.stylesheet }}"
+        }
+
+        $inputs = @{
+              TemplatePath          = $TemplatePath
+              ReplaceHash           = ${{  inputs.hashtable }}
+              CSSPath               = $CSSPath
+              OutputPath            = "${{ inputs.output-path }}"
+              ReplaceHashFilePath   = "${{  inputs.hashtable-filepath }}"
+              NoOptimize            = "${{  inputs.no-optimize }}"
+          }
+
+        ${{ github.action_path }}/main.ps1 @inputs
+
+    - name: Upload artifact
+      if: ${{  inputs.no-artifact }} != 'true'
+      uses: actions/upload-artifact@v2
+      with:
+        name: pics
+        path: ${{ inputs.output-path }}
