@@ -39,7 +39,7 @@ To dynamically generate your own image, just copy the code below and modify as d
 
 ```yaml
     - name: Generate Open Graph Image
-      uses: potatoqualitee/ogimage@action
+      uses: potatoqualitee/ogimage@main
       with:
         stylesheet: ./sample/style.css
 ```
@@ -48,7 +48,7 @@ But you can also get wild.
 
 ```yaml
     - name: Generate Open Graph Image
-      uses: potatoqualitee/ogimage@action
+      uses: potatoqualitee/ogimage@main
       with:
         template-path: ./blog/assets/template.md
         stylesheet: ./blog/assets/template-style.css, https://fonts.googleapis.com/css?family=Ubuntu
@@ -67,7 +67,7 @@ If you'd like to see it work before diving in, this example works:
 
 ```yaml
       - name: Generate Open Graph Image
-        uses: potatoqualitee/ogimage@action
+        uses: potatoqualitee/ogimage@main
         with:
           stylesheet: ./sample/style.css
           hashtable: |-
@@ -116,7 +116,7 @@ Once the file is created and stored in your repo, specify it as a `filename`
 
 ```yaml
       - name: Generate Open Graph Image
-        uses: potatoqualitee/ogimage@action
+        uses: potatoqualitee/ogimage@main
         with:
           stylesheet: ./sample/style.css
           hashtable-filepath: ./sample/replace-template.ps1
@@ -170,7 +170,7 @@ jobs:
   run-on-linux:
     runs-on: ubuntu-latest
     steps:
-      - uses: potatoqualitee/ogimage@action
+      - uses: potatoqualitee/ogimage@main
       - name: Create OG:Images
         uses: ./
 
@@ -185,7 +185,7 @@ jobs:
   run-on-linux:
     runs-on: ubuntu-latest
     steps:
-      - uses: potatoqualitee/ogimage@action
+      - uses: potatoqualitee/ogimage@main
       - name: Create OG:Images
         uses: ./
 

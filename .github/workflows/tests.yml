@@ -9,15 +9,15 @@ jobs:
         uses: ./
 
       - name: no params
-        uses: potatoqualitee/ogimage@action
+        uses: potatoqualitee/ogimage@main
 
       - name: using minimal params
-        uses: potatoqualitee/ogimage@action
+        uses: potatoqualitee/ogimage@main
         with:
           stylesheet: ./sample/style.css
 
       - name: using hashtable
-        uses: potatoqualitee/ogimage@action
+        uses: potatoqualitee/ogimage@main
         with:
           stylesheet: ./sample/style.css
           hashtable: |-
@@ -30,7 +30,7 @@ jobs:
             }
 
       - name: using filepath
-        uses: potatoqualitee/ogimage@action
+        uses: potatoqualitee/ogimage@main
         with:
           stylesheet: ./sample/style.css
           hashtable-filepath: ./sample/replace-template.ps1
