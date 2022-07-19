@@ -12,6 +12,27 @@ So when people post them to places like Twitter or LinkedIn, they are informativ
 
 If you'd like to see how GitHub does it, you can check out their article: [A framework for building Open Graph images](https://github.blog/2021-06-22-framework-building-open-graph-images/).
 
+## How does it work?
+
+Basically, you **create a markdown or html template** with phrases to replace like <br/>
+--AUTHOR-- or --TITLE--.
+
+```
+<div class="title">--TITLE--</div>
+<div class="author">A new article by --AUTHOR--!</div>
+```
+
+Then let the action know what --AUTHOR-- and --TITLE-- will be replaced by.
+
+```
+@{
+    "--TITLE--"     = "New book released!"
+    "--AUTHOR--"    = "Chrissy LeMaire"
+}
+```
+
+Want to make it pretty? You can even attach a stylesheet or reference an online stylesheet or both.
+
 ## Documentation
 
 To dynamically generate your own image, just copy the code below and modify as desired. I know I just want to see stuff work, so it works without any modifications, right out of the box.
@@ -130,7 +151,7 @@ Create a workflow `.yml` file in your repositories `.github/workflows` directory
 * `template-path` - The path to the html or markdown to use as a template.
 * `stylesheet` - A comma-separated list of paths to any CSS files you'll be using. Can include file paths and even web addresses.
 * `hashtable` - A hashtable of key/value pairs to replace in the template. Use a FileName key (without an extension) to specify the filename to use for the image, otherwise, it'll be saved with a temporary name.
-* `hashtable-filepath` - If you'd prefer to use an external PowerShell file to create your images instead of a hardcoded hashtable in YAML, you can use this to specify the filepath to use. This file should only contain a hashtable and start with @{
+* `hashtable-filepath` - If you'd prefer to use an external PowerShell file to create your images instead of a hardcoded hashtable in YAML, you can use this to specify the filepath to use. This file should only contain a hashtable and start with `@{`
 * `output-path` - The output path where the generated images will be saved. This will generally be your website's repository. By default, however, it'll save all output to /tmp/pics.
 * `no-artifact` - By default, the markdown, html and png files are saved as an artifact. Set to true to skip the upload.
 * `no-optimize` - Don't optimize the png (greatly decreases size but takes a bit).
