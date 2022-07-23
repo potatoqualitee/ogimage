@@ -90,7 +90,7 @@ The output is a file named `rbar-performance-in-powershell.png` which looks like
 I'm not so good at CSS and HTML so it could be better, but this shows you how it can work. Here are the sample files I used.
 
 * [/sample/template.md](https://raw.githubusercontent.com/potatoqualitee/ogimage/main/sample/template.md)
-* [/sample/style.css](https://github.com/potatoqualitee/ogimage/blob/action/main/style.css)
+* [/sample/style.css](https://github.com/potatoqualitee/ogimage/blob/main/sample/style.css)
 
 
 For multiple images, you will want to specify a hashtable-filename such as `./assets/hash.ps1` that contains code formatted similar to the following:
@@ -136,8 +136,8 @@ To add it to your website, copy the images to an appropriate directory, edit the
 <meta property="og:locale" content="en_US" />
 <meta property="og:image" content="https://docs.dbatools.io/assets/thumbs/Add-DbaAgDatabase.png">
 
-<meta name=twitter:title content="dbatools docs:  Add-DbaAgDatabase">
-<meta name=twitter:creator content="@psdbatools">
+<meta name="twitter:title" content="dbatools docs:  Add-DbaAgDatabase">
+<meta name="twitter:creator" content="@psdbatools">
 <meta name="twitter:site" content="@psdbatools" />
 <meta name="twitter:image" content="https://docs.dbatools.io/assets/thumbs/Add-DbaAgDatabase.png">
 <meta name="twitter:card" content="summary_large_image"> 
