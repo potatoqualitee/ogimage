@@ -2,11 +2,7 @@
 
 This action dynamically generates Open Graph images (OG:Image) from template files. This is useful for giving your links more context on social media such as Twitter and LinkedIn.
 
-With some CSS finesse, you too can auto-generate your own OG images like GitHub does.
-
-<center><img src="https://opengraph.githubassets.com/f1ac5cee6a934fa04d2fc7fbd76084a5343347798d1e9213d9c367eeecf73761/dataplat/dbatools"></center>
-
-So when people posts links to your site, they are informative and look great:
+With some CSS finesse, you too can auto-generate your own OG images like GitHub does. So when people posts links to your site, they are informative and look great:
 
 <center><img src="https://user-images.githubusercontent.com/8278033/179485407-b721d755-92f2-4850-82b0-9a019c0b1917.png"></center>
 
